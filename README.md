@@ -1,5 +1,5 @@
-Pretty Vim Python
-=================
+Pretty Vim Python 0.1
+=====================
 
 This is my attemp to make the python syntax highlighting in Vim look like Textmate's.
 
