@@ -203,8 +203,85 @@ td { vertical-align: top; }
 
 
 /* ==|== primary styles =====================================================
-   Author:
+   Author: Francois de Villiers
    ========================================================================== */
+
+header {
+  width: 100%;
+  border-bottom: 1px solid #000;
+}
+
+header div.left-column {
+  width: 330px;
+  text-align: right;
+}
+
+div#banner {
+  width: 100%;
+  height: 480px;
+  background-color: #333;
+  border-bottom: 1px solid #000;
+}
+
+div#content {
+  width: 100%;
+  height: 180px;
+}
+
+div.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 980px;
+}
+
+/*div.left-column,
+div.right-column {
+  width: 460px;
+}*/
+
+div#banner div.left-column {
+  float: left;
+  width: 330px;
+  height: 480px;
+}
+
+div#banner div.right-column {
+  float: right;
+  width: 630px;
+  height: 480px;
+}
+
+div#content div.left-column {
+  float: left;
+  width: 330px;
+  height: 180px;
+}
+
+
+div#content div.left-column h2{
+  text-align: right;
+}
+
+
+div#content div.left-column p{
+  text-align: justify;
+}
+
+div#content div.right-column {
+  float: right;
+  height: 180px;
+}
+
+div#banner h1, h3 {
+  color: #FDFDFD;
+  text-align: right;
+}
+
+img {
+  position: relative;
+  margin-top: -75px;
+}
+
 
 
 
