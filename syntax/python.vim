@@ -66,7 +66,7 @@ endif
 " - 'print' is a built-in in Python 3.0 and will be highlighted as
 "   built-in below (use 'from __future__ import print_function' in 2.6)
 "
-syn keyword pythonStatement	False None True
+syn keyword pythonConstant	False None True
 syn keyword pythonStatement	as assert break continue del exec global
 syn keyword pythonStatement	lambda nonlocal pass print return with yield
 syn keyword pythonStatement	def nextgroup=pythonFunction skipwhite
@@ -104,7 +104,7 @@ syn match   pythonFunction
       \ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonVars
 syn region pythonVars start="(" end=")" contained contains=pythonParameters transparent keepend
 syn match pythonParameters "[^,]*" contained contains=pythonParam,pythonBrackets skipwhite
-syn match pythonParam "=[^,]*" contained contains=pythonExtraOperator,pythonStatement,pythonNumber,pythonString skipwhite
+syn match pythonParam "=[^,]*" contained contains=pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString skipwhite
 syn match pythonBrackets "[(|)]" contained skipwhite
 
 " NOTE: @pfdevilliers added this
@@ -112,7 +112,7 @@ syn match pythonBrackets "[(|)]" contained skipwhite
 syn match   pythonClass
       \ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonClassVars
 syn region pythonClassVars start="(" end=")" contained contains=pythonClassParameters transparent keepend
-syn match pythonClassParameters "[^,]*" contained contains=pythonBrackets skipwhite
+syn match pythonClassParameters "[^,]*" contained contains=pythonBuiltin,pythonBrackets skipwhite
 
 
 
@@ -197,8 +197,8 @@ endif
 if !exists("python_no_builtin_highlight")
   " built-in constants
   " 'False', 'True', and 'None' are also reserved words in Python 3.0
-  syn keyword pythonBuiltin	False True None
-  syn keyword pythonBuiltin	NotImplemented Ellipsis __debug__
+  syn keyword pythonConstant	False True None
+  syn keyword pythonConstant	NotImplemented Ellipsis __debug__
   " built-in functions
   syn keyword pythonBuiltin	abs all any bin bool chr classmethod
   syn keyword pythonBuiltin	compile complex delattr dict dir divmod
@@ -293,6 +293,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   " override it.
   "
   " HiLink pythonStatement	Statement
+  HiLink pythonConstant  Constant
   HiLink pythonStatement  Structure
   HiLink pythonConditional	Conditional
   HiLink pythonRepeat		Repeat
