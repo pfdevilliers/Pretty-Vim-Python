@@ -91,4 +91,6 @@ Restart the terminal so the changes can take effect.  Then put this python code 
 
 It should look like the image at the top, if it doesn't, then you did something wrong.
 
+If the colors are not coming through you might have to add this line to the bottom of your /home/el/.profile or your /home/el/.bashrc
 
+    TERM=xterm-256color
