@@ -85,5 +85,4 @@ Restart the terminal so the changes can take effect.  Then put this python code 
 
 It should look like this, if it doesn't, then you did something wrong.
 
-![Imgur](http://imgur.com/iL56a1y)
-
+![Imgur](http://imgur.com/iL56a1y.png)
