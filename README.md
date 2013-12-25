@@ -12,6 +12,8 @@ Important
 
 To deploy this on your system:  (I assume your username is 'el', replace it with your username).
 
+
+    sudo apt-get install vim
     sudo apt-get install git
     mkdir /home/el/.vim
     git clone https://github.com/sentientmachine/Pretty-Vim-Python.git
