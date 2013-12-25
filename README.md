@@ -3,7 +3,7 @@ Pretty Vim Python
 
 How to get a vim python colorscheme that doesn't suck.
 
-If this doesn't work for you or you see any errors, let me know eric.leschinski@hotmail.com and I'll fix it.
+If this doesn't work for you or you see anything wrong, let me know eric.leschinski@hotmail.com and I'll see if its my fault or your fault.
 
 ![Imgur](http://imgur.com/iL56a1y.png)
 
