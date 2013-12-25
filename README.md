@@ -3,6 +3,8 @@ Pretty Vim Python
 
 How to get a vim python colorscheme that doesn't suck.
 
+If this doesn't work for you or you see any errors, let me know eric.leschinski@hotmail.com and I'll fix it.
+
 ![Imgur](http://imgur.com/iL56a1y.png)
 
 This is my attempt to make the python syntax highlighting in Vim look like Textmate's.  It works on Ubuntu 12.10, for other distributions things may be different.
