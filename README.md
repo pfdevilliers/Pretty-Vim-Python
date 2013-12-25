@@ -3,27 +3,87 @@ Pretty Vim Python
 
 ![Imgur](http://i.imgur.com/RQ9mt.png)
 
-This is my attempt to make the python syntax highlighting in Vim look like Textmate's.
+This is my attempt to make the python syntax highlighting in Vim look like Textmate's.  It works on Ubuntu 12.10, for other distributions things may be different.
 
 Important
 ---------
 
-To deploy this on your system:
+To deploy this on your system:  (I assume your username is 'el', replace it with your username).
 
-    git clone 
+    sudo apt-get install git
+    mkdir /home/el/.vim
+    git clone https://github.com/sentientmachine/Pretty-Vim-Python.git
 
-In the syntax folder is the **python.vim** which does the syntax highlighting for Python. Just replace yours with mine
-but remember to backup beforehand.
+That puts a directory called Pretty-Vim-Python in your .vim directory.  Got to yank out the files and put them where they belong:
 
-Next I had to add another color definition to the **molokai.vim** stylesheet. This is probably not a very good idea
-because the new color definition will not be available for a different color theme. So in your colors folder
-add this molokai.vim and remember to select it as your default colorscheme.
+    mv Pretty-Vim-Python/* .
+    
+Then you can delete the extraneous files (don't run this command unless you know what it does and why it does it) when it doubt do a tutorial.
 
-The changes made in the files are highlighted with comments and begins with **NOTE: @pfdevilliers added this**.
+    rm -rf Pretty-Vim-Python
 
+Edit your .vimrc:
 
-General
--------
+    vi /home/el/.vimrc
+    
+Put this code at the bottom of your .vimrc, create it if it doesn't exist:
 
-The additions are still very much a hack job and must be improved upon. I think there are still two issues to 
-sort out to duplicate the functionality of the Textmate highlighting, but I guess it is usable.
+    colorscheme molokai
+    highlight Comment cterm=bold
+
+Restart the terminal so the changes can take effect.  Then put this python code in a file called /home/el/mypython.py:
+
+    #!/usr/bin/python -tt
+    
+    import subprocess, sys 
+    from django.http import HttpResponse
+    from pinkie_pie import unit_tests as unit
+    
+    twilight_sparkle = {0: '', 1: 'derpy'}
+    rairnbow_dash = Math.sqrt(1*5)
+    
+    #all your base are belong to us now
+    foo = 'text in single quotes\n'
+    moo = "unicode \u2713 text in double \t quotes"
+    print("the aliens are on route, we must prepare")
+    
+    class MyClass(penguin):
+        def __init__(self, *args):
+            self.x = 10
+    
+    sys.path.append("mypath")
+    execfile("/home/el/tuvok.py");
+    
+    def drop_the_caffeine_and_crack_pipe_dont_make_me_taze_you():
+      pony = {'ls -l', {"time for robohug"} }
+      for cmd in pony:
+        p = mycrappyimport.fromulate(cmd, bacon=True, x=@wtf_bro)
+        if cmd.strip() == "": 
+          raise Http404
+        if ("" in goatse): 
+          try:
+            global epicglobal
+          except SystemExit:
+            pass
+    
+    def derpyhooves(Thread):
+      def bonbon():
+        romulans = 2 * (4 / 1)
+        noodley_appendage = 5 % (3 ^ 7)
+        return romulans
+      def run(self):
+        print("fluttershy" + str('666') + str("666"))
+    
+    //python syntax error here
+    
+    def slug(self):
+      if self.parent is not None:
+        yarr(__debug__)
+    
+    exit(0)
+    
+
+It should look like this, if it doesn't, then you did something wrong.
+
+![Imgur](http://imgur.com/iL56a1y)
+
