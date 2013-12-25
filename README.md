@@ -1,4 +1,4 @@
-Pretty Vim Python 0.1
+Pretty Vim Python
 =====================
 
 ![Imgur](http://i.imgur.com/RQ9mt.png)
@@ -7,6 +7,10 @@ This is my attempt to make the python syntax highlighting in Vim look like Textm
 
 Important
 ---------
+
+To deploy this on your system:
+
+    git clone 
 
 In the syntax folder is the **python.vim** which does the syntax highlighting for Python. Just replace yours with mine
 but remember to backup beforehand.
