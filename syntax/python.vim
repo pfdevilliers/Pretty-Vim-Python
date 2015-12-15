@@ -102,8 +102,12 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " This should be improved and simplified.
 syn match   pythonFunction
       \ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonVars
-syn region pythonVars start="(" end=")" contained contains=pythonParameters transparent keepend
-syn match pythonParameters "[^,]*" contained contains=pythonParam,pythonBrackets skipwhite
+" NOTE: @Kamushin fix this
+"    @mock(a=["(aa)"])
+"    def foo(self, str_a='aaa()aaa')
+
+syn region pythonVars start="(" end=")[\n|:]" contained contains=pythonParameters transparent keepend
+syn match pythonParameters "[^,:]*" contained contains=pythonParam,pythonBrackets skipwhite
 syn match pythonParam "=[^,]*" contained contains=pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString skipwhite
 syn match pythonBrackets "[(|)]" contained skipwhite
 
