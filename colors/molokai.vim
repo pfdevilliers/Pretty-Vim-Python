@@ -231,3 +231,6 @@ if &t_Co > 255
    hi LineNr          ctermfg=250 ctermbg=233
    hi NonText         ctermfg=240 ctermbg=233
 end " }}}
+
+highlight Comment cterm=bold
+
