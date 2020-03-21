@@ -102,9 +102,14 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " This should be improved and simplified.
 syn match   pythonFunction
       \ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonVars
-syn region pythonVars start="(" end=")" contained contains=pythonParameters transparent keepend
-syn match pythonParameters "[^,]*" contained contains=pythonParam,pythonBrackets skipwhite
+" NOTE: @Kamushin fix this
+"    @mock(a=["(aa)"])
+"    def foo(self, str_a='aaa()aaa):')
+syn region pythonVars start="(" end=")\ze.*:*\n" contained contains=pythonParameters,pythonOutputAnnotation transparent keepend
+syn match pythonOutputAnnotation "\(\zs\s*->.*\)\=" contained
+syn match pythonParameters "[^,:]*" contained contains=pythonParam,pythonBrackets,pythonInputAnnotation skipwhite
 syn match pythonParam "=[^,]*" contained contains=pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString skipwhite
+syn match pythonInputAnnotation ":[^,:=]*" contained contains=pythonBuiltin
 syn match pythonBrackets "[(|)]" contained skipwhite
 
 " NOTE: @pfdevilliers added this
@@ -315,6 +320,9 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonParam Normal
   HiLink pythonBrackets Normal
   HiLink pythonClassParameters InheritUnderlined
+  HiLink pythonOutputAnnotation String
+  HiLink pythonInputAnnotation  String
+
 
   if !exists("python_no_number_highlight")
     HiLink pythonNumber		Number
