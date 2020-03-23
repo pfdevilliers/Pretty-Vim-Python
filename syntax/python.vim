@@ -102,14 +102,19 @@ syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
 " This should be improved and simplified.
 syn match   pythonFunction
       \ "\%(\%(def\s\|class\s\|@\)\s*\)\@<=\h\%(\w\|\.\)*" contained nextgroup=pythonVars
-" NOTE: @Kamushin fix this
+" NOTE: @Kamushin fix this, then @jorgelespinoza extended this
 "    @mock(a=["(aa)"])
 "    def foo(self, str_a='aaa()aaa):')
 syn region pythonVars start="(" end="\(\(["'].*["'].*\)*$\)*)\ze\(\s*->.*\)\=:\n" contained contains=pythonParameters,pythonOutputAnnotation transparent keepend
+
+" NOTE: @jorgelespinoza added this
+" With the previous line extended and the next two lines added, this syntax file supports annotations
+" and parametes using multiple lines in a function definition. 
+syn match pythonInputAnnotation ":[^,:=]*" contained contains=pythonBuiltin
 syn match pythonOutputAnnotation "\(\zs\s*->.*\)\=" contained
+
 syn match pythonParameters "[^,:]*" contained contains=pythonParam,pythonBrackets,pythonInputAnnotation skipwhite
 syn match pythonParam "=[^,]*" contained contains=pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString skipwhite
-syn match pythonInputAnnotation ":[^,:=]*" contained contains=pythonBuiltin
 syn match pythonBrackets "[(|)]" contained skipwhite
 
 " NOTE: @pfdevilliers added this
