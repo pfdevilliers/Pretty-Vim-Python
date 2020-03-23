@@ -105,7 +105,7 @@ syn match   pythonFunction
 " NOTE: @Kamushin fix this
 "    @mock(a=["(aa)"])
 "    def foo(self, str_a='aaa()aaa):')
-syn region pythonVars start="(" end=")\ze.*:*\n" contained contains=pythonParameters,pythonOutputAnnotation transparent keepend
+syn region pythonVars start="(" end="\((.*).*\)*)\ze.*:*\n" contained contains=pythonParameters,pythonOutputAnnotation transparent keepend
 syn match pythonOutputAnnotation "\(\zs\s*->.*\)\=" contained
 syn match pythonParameters "[^,:]*" contained contains=pythonParam,pythonBrackets,pythonInputAnnotation skipwhite
 syn match pythonParam "=[^,]*" contained contains=pythonExtraOperator,pythonBuiltin,pythonConstant,pythonStatement,pythonNumber,pythonString skipwhite
